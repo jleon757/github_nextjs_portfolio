@@ -1,103 +1,274 @@
-import Image from "next/image";
+"use client"
+
+import { useState } from "react"
+import { Github, Mail, MapPin } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import this_is_fine from '../../public/images/this_is_fine.png'
+import Image from "next/image"
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [darkMode, setDarkMode] = useState(true)
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode)
+  }
+
+  return (
+    <div className="min-h-screen bg-[#1C1C1C]">
+      <main className="container mx-auto px-4 py-8 text-gray-300">
+        <section id="home" className="mb-16 bg-[#232323] py-20 rounded-lg">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col md:flex-row items-center justify-between">
+              <div className="md:w-1/2 mb-8 md:mb-0">
+                <h2 className="text-5xl font-bold mb-4 text-white">John Doe</h2>
+                <div className="flex items-center gap-2 mb-6">
+                  <MapPin className="h-5 w-5 text-[#00FF00]" />
+                  <span className="text-gray-300">Virginia, USA</span>
+                </div>
+                <p className="text-2xl mb-6 text-[#00FF00]">
+                  DevOps | Cloud Security | Data Engineer | SIEM Engineer | CI/CD Automation
+                </p>
+                <p className="text-xl mb-8">
+                  Extensive background in DevOps, Cloud Security, Configuration Automation, Data Engineering, and
+                  expanding my knowledge around machine learning and AI.
+                </p>
+                <div className="flex items-center gap-4">
+                  <a
+                    href="https://github.com/jleon757"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#00FF00] hover:text-[#00FF00]/80 transition-colors duration-300"
+                  >
+                    <Github className="h-8 w-8" />
+                  </a>
+                  <a
+                    href="mailto:AAAA@aol.com"
+                    className="text-[#00FF00] hover:text-[#00FF00]/80 transition-colors duration-300"
+                  >
+                    <Mail className="h-8 w-8" />
+                  </a>
+                </div>
+              </div>
+              <div className="md:w-1/2 flex justify-center">
+                <Image
+                  src={this_is_fine}
+                  alt="Profile"
+                  className="rounded-full w-64 h-64 border-4 border-[#00FF00] shadow-lg shadow-[#00FF00]/20 object-cover object-center"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="mb-16">
+          <h2 className="text-3xl font-bold mb-6 pb-2 border-b-2 border-[#00FF00] inline-block text-white">About Me</h2>
+          <p className="mb-4">
+            As a cybersecurity professional with 13 years of experience and 8 of those focused on security engineering
+            and SOC Operations, I specialize in computer security, automation, cloud environments, SIEM architecture,
+            and technical writing for enterprise-level organizations. My approach focuses on best practices and
+            implementing defense-in-depth strategies to ensure comprehensive protection.
+          </p>
+          <h3 className="text-2xl font-semibold mb-2 text-white">Core Skills</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+            {[
+              "Infrastructure Automation",
+              "Cloud Security",
+              "SIEM Engineering & Optimization",
+              "DevSecOps & CI/CD Automation",
+              "Security Monitoring & Alerting",
+              "Scripting & Automation",
+            ].map((skill) => (
+              <div
+                key={skill}
+                className="bg-[#232323] rounded-full px-3 py-1 text-sm font-semibold text-[#00FF00] border border-[#2A2A2A] hover:border-[#00FF00] transition-all duration-300"
+              >
+                {skill}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="projects" className="mb-16">
+          <h2 className="text-3xl font-bold mb-6 pb-2 border-b-2 border-[#00FF00] inline-block text-white">Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card className="bg-[#232323] border-[#2A2A2A] hover:border-[#00FF00]/50 transition-all duration-300">
+              <CardHeader>
+                <CardTitle className="text-white">ASN Geolocation Data</CardTitle>
+                <CardDescription className="text-gray-400">
+                  Automating data retrieval and indexing into Splunk
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="text-gray-300">
+                <p className="mb-3">
+                  This repository implements automatic download of MaxMind GeoLite ASN Database. This data is used to
+                  enrich existing authentication logs and successfully used to identify users operating in one country
+                  while claiming to be in another.
+                </p>
+                <a
+                  href="https://github.com/jleon757"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#00FF00] hover:text-[#00FF00]/80 transition-colors duration-300 font-medium"
+                >
+                  View on GitHub →
+                </a>
+              </CardContent>
+            </Card>
+            <Card className="bg-[#232323] border-[#2A2A2A] hover:border-[#00FF00]/50 transition-all duration-300">
+              <CardHeader>
+                <CardTitle className="text-white">Kubernetes Security</CardTitle>
+                <CardDescription className="text-gray-400">Implementing OPA policies for K8s clusters</CardDescription>
+              </CardHeader>
+              <CardContent className="text-gray-300">
+                <p>
+                  Developed and deployed Open Policy Agent (OPA) policies to enforce security best practices across
+                  multiple Kubernetes clusters, ensuring compliance with industry standards and reducing security risks.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        <section id="certifications" className="mb-16">
+          <h2 className="text-3xl font-bold mb-6 pb-2 border-b-2 border-[#00FF00] inline-block text-white">
+            Certifications
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card className="bg-[#232323] border-[#2A2A2A] hover:border-[#00FF00] transition-all duration-300 group">
+              <CardContent className="p-6 text-center">
+                <div className="mb-4 relative">
+                  <div className="w-24 h-24 mx-auto flex items-center justify-center transform group-hover:scale-110 transition-all duration-300">
+                    <img
+                      src="https://www.bryanmorrison.tech/certs/certification-splunk-enterprise-certified-architect.png"
+                      alt="Splunk Certified Architect"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                </div>
+                <h3 className="text-[#00FF00] font-semibold text-lg mb-2">Splunk Certified Architect</h3>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-[#232323] border-[#2A2A2A] hover:border-[#00FF00] transition-all duration-300 group">
+              <CardContent className="p-6 text-center">
+                <div className="mb-4 relative">
+                  <div className="w-24 h-24 mx-auto flex items-center justify-center transform group-hover:scale-110 transition-all duration-300">
+                    <img
+                      src="https://www.bryanmorrison.tech/certs/splunk-enterprise-certified-admin.png"
+                      alt="Splunk Certified Admin"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                </div>
+                <h3 className="text-[#00FF00] font-semibold text-lg mb-2">Splunk Certified Admin</h3>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-[#232323] border-[#2A2A2A] hover:border-[#00FF00] transition-all duration-300 group">
+              <CardContent className="p-6 text-center">
+                <div className="mb-4 relative">
+                  <div className="w-20 h-20 mx-auto flex items-center justify-center transform group-hover:scale-110 transition-all duration-300 rounded-lg overflow-hidden">
+                    <img
+                      src="https://appliedtechnologyacademy.com/wp-content/uploads/2024/03/cissp-logo-1.webp"
+                      alt="CISSP Certification"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                </div>
+                <h3 className="text-[#00FF00] font-semibold text-lg mb-2">CISSP</h3>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-[#232323] border-[#2A2A2A] hover:border-[#00FF00] transition-all duration-300 group">
+              <CardContent className="p-6 text-center">
+                <div className="mb-4 relative">
+                  <div className="w-20 h-20 mx-auto flex items-center justify-center transform group-hover:scale-110 transition-all duration-300">
+                    <img
+                      src="https://www.bryanmorrison.tech/certs/tines_core_cert.png"
+                      alt="Tines Core Certification"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                </div>
+                <h3 className="text-[#00FF00] font-semibold text-lg mb-2">Tines Core Certification</h3>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-[#232323] border-[#2A2A2A] hover:border-[#00FF00] transition-all duration-300 group">
+              <CardContent className="p-6 text-center">
+                <div className="mb-4 relative">
+                  <div className="w-20 h-20 mx-auto flex items-center justify-center transform group-hover:scale-110 transition-all duration-300">
+                    <img
+                      src="https://www.bryanmorrison.tech/certs/cribl_certified_user_badge.png"
+                      alt="Cribl Certified User"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                </div>
+                <h3 className="text-[#00FF00] font-semibold text-lg mb-2">Cribl - Certified User</h3>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        <section id="currently-learning" className="mb-16">
+          <h2 className="text-3xl font-bold mb-6 pb-2 border-b-2 border-[#00FF00] inline-block text-white">
+            Currently Learning
+          </h2>
+          <Card className="mb-6 bg-[#232323] border-[#2A2A2A] hover:border-[#00FF00]/50 transition-all duration-300">
+            <CardHeader>
+              <CardTitle className="text-white text-lg">Security Monitoring</CardTitle>
+            </CardHeader>
+            <CardContent className="text-gray-300 pt-0">
+              <ul className="list-disc pl-5">
+                <li>
+                  Reading through:{" "}
+                  <a
+                    href="https://quesma.com/blog-detail/5-grafana-docker-examples-to-get-started-with-metrics-logs-and-traces"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#00FF00] hover:text-[#00FF00]/80 transition-colors duration-300"
+                  >
+                    5 Grafana in Docker examples to get started with metrics, logs, and traces.
+                  </a>
+                </li>
+                <li>
+                  Yet to read:{" "}
+                  <a
+                    href="https://trunk.io/blog/beyond-the-editor-bringing-ai-to-the-rest-of-your-dev-workflow"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#00FF00] hover:text-[#00FF00]/80 transition-colors duration-300"
+                  >
+                    Bringing AI to the rest of your dev workflow
+                  </a>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+          <Card className="mb-6 bg-[#232323] border-[#2A2A2A] hover:border-[#00FF00]/50 transition-all duration-300">
+            <CardHeader>
+              <CardTitle className="text-white text-lg">IAM</CardTitle>
+            </CardHeader>
+            <CardContent className="text-gray-300 pt-0">
+              <ul className="list-disc pl-5">
+                <li>
+                  Testing out{" "}
+                  <a
+                    href="https://sgnl.ai/product/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#00FF00] hover:text-[#00FF00]/80 transition-colors duration-300"
+                  >
+                    SGNL&apos;s AI platform
+                  </a>{" "}
+                  for eliminating accounts with standing privilege.
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
-  );
+  )
 }
