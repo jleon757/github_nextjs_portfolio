@@ -105,7 +105,7 @@ export default function Home() {
                   while claiming to be in another.
                 </p>
                 <a
-                  href="https://github.com/jleon757/asn-geolocation-data"
+                  href="https://github.com/jleon757/asn-datapull"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#00FF00] hover:text-[#00FF00]/80 transition-colors duration-300 font-medium"
