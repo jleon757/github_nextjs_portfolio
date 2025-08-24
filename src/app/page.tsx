@@ -20,7 +20,7 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center justify-between">
               <div className="md:w-1/2 mb-8 md:mb-0">
-                <h2 className="text-5xl font-bold mb-4 text-white">John Doe</h2>
+                <h2 className="text-5xl font-bold mb-4 text-white">Juan Leon</h2>
                 <div className="flex items-center gap-2 mb-6">
                   <MapPin className="h-5 w-5 text-[#00FF00]" />
                   <span className="text-gray-300">Virginia, USA</span>
@@ -105,7 +105,7 @@ export default function Home() {
                   while claiming to be in another.
                 </p>
                 <a
-                  href="https://github.com/jleon757"
+                  href="https://github.com/jleon757/asn-geolocation-data"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#00FF00] hover:text-[#00FF00]/80 transition-colors duration-300 font-medium"
@@ -116,13 +116,13 @@ export default function Home() {
             </Card>
             <Card className="bg-[#232323] border-[#2A2A2A] hover:border-[#00FF00]/50 transition-all duration-300">
               <CardHeader>
-                <CardTitle className="text-white">Kubernetes Security</CardTitle>
-                <CardDescription className="text-gray-400">Implementing OPA policies for K8s clusters</CardDescription>
+                <CardTitle className="text-white">Splunk MCP + Boss of the SOC</CardTitle>
+                <CardDescription className="text-gray-400">Utilizing Splunk MCP to query BOTS data</CardDescription>
               </CardHeader>
               <CardContent className="text-gray-300">
                 <p>
-                  Developed and deployed Open Policy Agent (OPA) policies to enforce security best practices across
-                  multiple Kubernetes clusters, ensuring compliance with industry standards and reducing security risks.
+                  Building out the Splunk MCP to query BOTS data. This is a tool that allows me to query the BOTS data
+                  and leverage the MCP to build out dashboards and alerts.
                 </p>
               </CardContent>
             </Card>
